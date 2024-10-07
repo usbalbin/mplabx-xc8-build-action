@@ -2,10 +2,11 @@
 
 set -x -e
 
-PROJECT=$1
-CONFIG=$2
-MPLABX_VERSION=$3
-XC8_VERSION=$4
+MPLABX_VERSION=$1
+XC8_VERSION=$2
+PROJECT=$3
+CONFIG=$4
+
 
 echo "Building project $PROJECT:$CONFIG with MPLAB X v5.45 and XC8 v1.34"
 
@@ -32,7 +33,6 @@ wget -nv -O /tmp/mplabx "https://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX
   mv "MPLABX-v${MPLABX_VERSION}-linux-installer.sh" mplabx && \
   sudo ./mplabx --nox11 -- --unattendedmodeui none --mode unattended --ipe 0 --collectInfo 0 --installdir /opt/mplabx --16bitmcu 0 --32bitmcu 0 --othermcu 0 && \
   rm mplabx
-
 
 # Build
 /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh "$PROJECT@$CONFIG" || exit 1
