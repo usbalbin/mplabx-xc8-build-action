@@ -33,7 +33,9 @@ wget -nv -O /tmp/mplabx "https://ww1.microchip.com/downloads/aemDocuments/docume
   sudo ./mplabx --nox11 -- --unattendedmodeui none --mode unattended --ipe 0 --collectInfo 0 --installdir /opt/mplabx --16bitmcu 0 --32bitmcu 0 --othermcu 0 && \
   rm mplabx
 
-ls /opt
+ls /opt/microchip
+
+ls /opt/microchip/*
 
 ls /opt/microchip/mplabx/v${MPLABX_VERSION}/mplab_platform/bin/prjMakefilesGenerator.sh
 
