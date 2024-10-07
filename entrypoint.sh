@@ -7,7 +7,7 @@ XC8_VERSION=$2
 PROJECT=$3
 CONFIG=$4
 
-echo "Building project $PROJECT:$CONFIG with MPLAB X v5.45 and XC8 v1.34"
+echo "Building project $PROJECT:$CONFIG with MPLAB X $MPLABX_VERSION and XC8 $MPLABX_VERSION"
 
 # Install the dependencies
 # See https://microchipdeveloper.com/install:mplabx-lin64
@@ -19,13 +19,13 @@ dpkg --add-architecture i386 && \
   rm -rf /var/lib/apt/lists/*
 
 # Download and install XC8
-wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/en/DeviceDoc/xc8-v${XC8_VERSION}-full-install-linux-installer.run" && \
+wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/xc8-v{XC8_VERSION}-full-install-linux-x64-installer.run" && \
   chmod +x /tmp/xc8 && \
   /tmp/xc8 --mode unattended --unattendedmodeui none --netservername localhost --LicenseType FreeMode --prefix "/opt/microchip/xc8/v${XC8_VERSION}" && \
   rm /tmp/xc8
 
 # Download and install MPLAB X
-wget -nv -O /tmp/mplabx "https://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX-v${MPLABX_VERSION}-linux-installer.tar" &&\
+wget -nv -O /tmp/mplabx "https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/MPLABX-v{MPLABX_VERSION}-linux-installer.tar" &&\
   cd /tmp && \
   tar -xf mplabx && \
   rm mplabx && \
