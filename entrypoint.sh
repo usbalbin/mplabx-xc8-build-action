@@ -7,7 +7,6 @@ XC8_VERSION=$2
 PROJECT=$3
 CONFIG=$4
 
-
 echo "Building project $PROJECT:$CONFIG with MPLAB X v5.45 and XC8 v1.34"
 
 # Install the dependencies
@@ -34,6 +33,10 @@ wget -nv -O /tmp/mplabx "https://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX
   sudo ./mplabx --nox11 -- --unattendedmodeui none --mode unattended --ipe 0 --collectInfo 0 --installdir /opt/mplabx --16bitmcu 0 --32bitmcu 0 --othermcu 0 && \
   rm mplabx
 
+ls /opt
+
+ls /opt/microchip/mplabx/v${MPLABX_VERSION}/mplab_platform/bin/prjMakefilesGenerator.sh
+
 # Build
-/opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh "$PROJECT@$CONFIG" || exit 1
+/opt/microchip/mplabx/v${MPLABX_VERSION}/mplab_platform/bin/prjMakefilesGenerator.sh "$PROJECT@$CONFIG" || exit 1
 make -C "$1" CONF="$CONFIG" build || exit 2
