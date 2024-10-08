@@ -42,7 +42,7 @@ ls /opt/microchip
 
 ls /opt/microchip/*
 
-ls /opt/microchip/mplabx/v${MPLABX_VERSION}/mplab_platform/bin/prjMakefilesGenerator.sh
+ls /opt/mplabx/v${MPLABX_VERSION}/mplab_platform/bin/prjMakefilesGenerator.sh
 
 # Build
 /opt/microchip/mplabx/v${MPLABX_VERSION}/mplab_platform/bin/prjMakefilesGenerator.sh "$PROJECT@$CONFIG" || exit 1
