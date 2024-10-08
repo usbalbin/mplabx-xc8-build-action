@@ -69,4 +69,4 @@ sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --install-pack $DEVICE_PAC
 # Build
 echo /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh -v "$(pwd)/$PROJECT@$CONFIG" || exit 1
 /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh -v "$(pwd)/$PROJECT@$CONFIG" || exit 1
-make -C "$1" CONF="$CONFIG" build || exit 2
+make -C "$PROJECT" CONF="$CONFIG" build || exit 2
