@@ -8,7 +8,7 @@ PROJECT=$3
 CONFIG=$4
 MPLAB_DOWNLOAD_URL=$5
 
-$WD=$(pwd)
+WD=$(pwd)
 
 echo $HOME
 
