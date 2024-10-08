@@ -54,7 +54,8 @@ ls /opt/microchip/*
 
 ls /opt/microchip/**
 
-ls /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh
+ls /opt/mplabx/mplab_platform/bin/
+ls /opt/mplabx/mplab_platform/bin/*
 
 cd $WD
 
