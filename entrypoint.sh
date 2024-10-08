@@ -14,7 +14,7 @@ echo "Building project $PROJECT:$CONFIG with MPLAB X v$MPLABX_VERSION and XC8 v$
 # See https://microchipdeveloper.com/install:mplabx-lin64
 dpkg --add-architecture i386 && \
   apt-get update && \
-  apt-get install -y libc6:i386 libx11-6:i386 libxext6:i386 libstdc++6:i386 libexpat1:i386 wget sudo make default-jre && \
+  apt-get install -y libc6:i386 libx11-6:i386 libxext6:i386 libstdc++6:i386 libexpat1:i386 libusb-1.0-0-dev wget sudo make default-jre && \
   apt-get clean && \
   apt-get autoremove && \
   rm -rf /var/lib/apt/lists/*
