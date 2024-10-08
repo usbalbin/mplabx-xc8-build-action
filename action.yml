@@ -22,6 +22,11 @@ inputs:
   mplab_download_url:
     description: Complete download URL for MPLAB X
     required: true
+  device_pack:
+    description: "Device pack to install"
+  device_pack_version:
+    description: "Device pack to install"
+
 runs:
   using: docker
   image: Dockerfile
@@ -31,3 +36,5 @@ runs:
     - ${{ inputs.project }}
     - ${{ inputs.configuration }}
     - ${{ inputs.mplab_download_url }}
+    - ${{ inputs.device_pack }}
+    - ${{ inputs.device_pack_version }}

@@ -7,6 +7,8 @@ XC8_VERSION=$2
 PROJECT=$3
 CONFIG=$4
 MPLAB_DOWNLOAD_URL=$5
+DEVICE_PACK=$6
+DEVICE_PACK_VERSION=$7
 
 WD=$(pwd)
 
@@ -55,6 +57,9 @@ ls /opt/microchip/**
 ls /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh
 
 cd $WD
+
+#Look for '<pack name="([\.a-zA-Z\-_\d ])*" vendor="([\.a-zA-Z\-_\d ]*)Microchip" version="([\.a-zA-Z\-_\d ]*)"/>' in nbproject/configurations.xml
+/opt/mplabx/mplab_platform/bin/packmanagercli.sh --install-pack $DEVICE_PACK --version $DEVICE_PACK_VERSION --vendor Microchip
 
 # Build
 echo /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh -v "$(pwd)/$PROJECT@$CONFIG" || exit 1
