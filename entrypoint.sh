@@ -8,7 +8,7 @@ PROJECT=$3
 CONFIG=$4
 MPLAB_DOWNLOAD_URL=$5
 
-pwd
+$WD=$(pwd)
 
 echo $HOME
 
@@ -54,7 +54,7 @@ ls /opt/microchip/**
 
 ls /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh
 
-cd $HOME
+cd $WD
 
 # Build
 echo /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh -v "$(pwd)/$PROJECT@$CONFIG" || exit 1
