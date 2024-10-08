@@ -51,6 +51,6 @@ ls /opt/microchip/**
 ls /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh
 
 # Build
-echo /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh -v "$(pwd)$PROJECT@$CONFIG" || exit 1
+echo /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh -v "$(pwd)/$PROJECT@$CONFIG" || exit 1
 /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh -v "$PROJECT@$CONFIG" || exit 1
 make -C "$1" CONF="$CONFIG" build || exit 2
