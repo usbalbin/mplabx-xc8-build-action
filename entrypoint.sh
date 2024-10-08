@@ -8,6 +8,10 @@ PROJECT=$3
 CONFIG=$4
 MPLAB_DOWNLOAD_URL=$5
 
+ls
+
+ls *
+
 echo "Building project $PROJECT:$CONFIG with MPLAB X v$MPLABX_VERSION and XC8 v$XC8_VERSION"
 
 # Install the dependencies
