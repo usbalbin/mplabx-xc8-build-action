@@ -59,6 +59,8 @@ ls /opt/mplabx/mplab_platform/bin/*
 
 cd $WD
 
+sudo cat /opt/mplabx/mplab_platform/bin/packmanagercli.sh
+
 #Look for '<pack name="([\.a-zA-Z\-_\d ])*" vendor="([\.a-zA-Z\-_\d ]*)Microchip" version="([\.a-zA-Z\-_\d ]*)"/>' in nbproject/configurations.xml
 sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --install-pack $DEVICE_PACK --version $DEVICE_PACK_VERSION --vendor Microchip
 
