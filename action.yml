@@ -20,7 +20,7 @@ inputs:
     required: true
     default: "2.40"
   mplab_download_url:
-    description: Complete download URL for mplab X
+    description: Complete download URL for MPLAB X
     required: true
 runs:
   using: docker

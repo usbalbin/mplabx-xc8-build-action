@@ -34,6 +34,10 @@ wget -nv -O /tmp/mplabx "$MPLAB_DOWNLOAD_URL" &&\
   sudo ./mplabx --nox11 -- --unattendedmodeui none --mode unattended --ipe 0 --collectInfo 0 --installdir /opt/mplabx --16bitmcu 0 --32bitmcu 0 --othermcu 0 && \
   rm mplabx
 
+ls /opt/*
+
+ls /opt/**
+
 ls /opt/microchip
 
 ls /opt/microchip/*
