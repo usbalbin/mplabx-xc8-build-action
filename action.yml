@@ -25,7 +25,7 @@ inputs:
   device_pack:
     description: "Device pack to install"
   device_pack_version:
-    description: "Device pack to install"
+    description: "Version of device pack to install"
 
 runs:
   using: docker
