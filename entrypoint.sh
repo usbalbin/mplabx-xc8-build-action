@@ -6,8 +6,9 @@ MPLABX_VERSION=$1
 XC8_VERSION=$2
 PROJECT=$3
 CONFIG=$4
+MPLAB_DOWNLOAD_URL=$5
 
-echo "Building project $PROJECT:$CONFIG with MPLAB X $MPLABX_VERSION and XC8 $MPLABX_VERSION"
+echo "Building project $PROJECT:$CONFIG with MPLAB X v$MPLABX_VERSION and XC8 v$XC8_VERSION"
 
 # Install the dependencies
 # See https://microchipdeveloper.com/install:mplabx-lin64
@@ -25,7 +26,7 @@ wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/aemDocuments/documents
   rm /tmp/xc8
 
 # Download and install MPLAB X
-wget -nv -O /tmp/mplabx "https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/MPLABX-v${MPLABX_VERSION}-linux-installer.tar" &&\
+wget -nv -O /tmp/mplabx "$MPLAB_DOWNLOAD_URL" &&\
   cd /tmp && \
   tar -xf mplabx && \
   rm mplabx && \

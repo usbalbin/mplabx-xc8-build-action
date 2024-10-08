@@ -19,6 +19,9 @@ inputs:
     description: Version of the XC8 compiler to use
     required: true
     default: "2.40"
+  mplab_download_url:
+    description: Complete download URL for mplab X
+    required: true
 runs:
   using: docker
   image: Dockerfile
@@ -27,3 +30,4 @@ runs:
     - ${{ inputs.xc8_version }}
     - ${{ inputs.project }}
     - ${{ inputs.configuration }}
+    - ${{ inputs.mplab_download_url }}
