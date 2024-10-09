@@ -5,7 +5,7 @@ set -x -e
 MPLABX_VERSION=$1
 XC8_VERSION=$2
 PROJECT=$3
-CONFIG=$4
+CONFIGS=$4
 MPLAB_DOWNLOAD_URL=$5
 DEVICE_PACK=$6
 DEVICE_PACK_VERSION=$7
@@ -14,11 +14,7 @@ WD=$(pwd)
 
 echo $HOME
 
-ls
-
-ls *
-
-echo "Building project $PROJECT:$CONFIG with MPLAB X v$MPLABX_VERSION and XC8 v$XC8_VERSION"
+echo "Building project $PROJECT with MPLAB X v$MPLABX_VERSION and XC8 v$XC8_VERSION"
 
 # Install the dependencies
 # See https://microchipdeveloper.com/install:mplabx-lin64
@@ -44,29 +40,16 @@ wget -nv -O /tmp/mplabx "$MPLAB_DOWNLOAD_URL" &&\
   sudo ./mplabx --nox11 -- --unattendedmodeui none --mode unattended --ipe 0 --collectInfo 0 --installdir /opt/mplabx --16bitmcu 0 --32bitmcu 0 --othermcu 0 && \
   rm mplabx
 
-ls /opt/*
-
-ls /opt/**
-
-ls /opt/microchip
-
-ls /opt/microchip/*
-
-ls /opt/microchip/**
-
-ls /opt/mplabx/mplab_platform/bin/
-ls /opt/mplabx/mplab_platform/bin/*
-
 cd $WD
-ls -hal /opt/mplabx/mplab_platform/bin/packmanagercli.sh
-sudo cat /opt/mplabx/mplab_platform/bin/packmanagercli.sh
-# https://packs.download.microchip.com/Microchip.${DEVICE_PACK}.${DEVICE_PACK_VERSION}.atpack
 
 sudo chmod +x /opt/mplabx/mplab_platform/bin/packmanagercli.sh
 #Look for '<pack name="([\.a-zA-Z\-_\d ])*" vendor="([\.a-zA-Z\-_\d ]*)Microchip" version="([\.a-zA-Z\-_\d ]*)"/>' in nbproject/configurations.xml
 sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --install-pack $DEVICE_PACK --version $DEVICE_PACK_VERSION --vendor Microchip
 
 # Build
-echo /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh -v "$(pwd)/$PROJECT@$CONFIG" || exit 1
-/opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh -v "$(pwd)/$PROJECT@$CONFIG" || exit 1
-make -C "$PROJECT" CONF="$CONFIG" build || exit 2
+/opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh -v "$(pwd)/$PROJECT" || exit 1
+
+for CONFIG in $CONFIGS; do
+    echo make -C "$PROJECT" CONF="$CONFIG" build
+    make -C "$PROJECT" CONF="$CONFIG" build || exit 2
+done

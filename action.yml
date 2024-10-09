@@ -7,8 +7,8 @@ inputs:
   project:
     description: Project folder location
     required: true
-  configuration:
-    description: Configuration to build
+  configurations:
+    description: Space separated list of configurations to build
     required: true
     default: default
   mplabx_version:
@@ -34,7 +34,7 @@ runs:
     - ${{ inputs.mplabx_version }}
     - ${{ inputs.xc8_version }}
     - ${{ inputs.project }}
-    - ${{ inputs.configuration }}
+    - ${{ inputs.configurations }}
     - ${{ inputs.mplab_download_url }}
     - ${{ inputs.device_pack }}
     - ${{ inputs.device_pack_version }}
